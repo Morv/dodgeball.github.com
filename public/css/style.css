@@ -198,6 +198,7 @@ div.section li.team {
   overflow: hidden;
   margin: 0 40px 50px 0;
   float: left;
+  height: 305px;
 }
 
 div.section div.team-header {
