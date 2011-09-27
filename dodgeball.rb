@@ -168,6 +168,7 @@ class Dodgeball < Sinatra::Base
     protected!
     @team = Team.first(:id => params[:teamid].to_i)
     fill_team(@team, params)
+    @team.donation = params['amount']
     if @team.save
       redirect '/admin'
     else

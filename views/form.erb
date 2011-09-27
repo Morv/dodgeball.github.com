@@ -95,16 +95,27 @@
         </td>
       </tr>
       <tr>
-        <td colspan="3">
-          <input type="text" name="contact-email" value="<%= @team.email %>">
-          <label for="contact-email">Email <span class="req">*</span> (so we can contact you to set up your donation)</label>
-        </td>
+        <% if !@edit_amount %> 
+          <td colspan="3">
+            <input type="text" name="contact-email" value="<%= @team.email %>">
+            <label for="contact-email">Email <span class="req">*</span> (so we can contact you to set up your donation)</label>
+          </td>
+        <% else %> 
+          <td colspan="2">
+            <input type="text" name="contact-email" value="<%= @team.email %>">
+            <label for="contact-email">Email <span class="req">*</span> (so we can contact you to set up your donation)</label>
+          </td>
+          <td>
+            <input type="text" name="amount" value="<%= @team.donation %>">
+            <label for="amount">Amount Donating</label>
+          </td>
+        <% end %>
       </tr>
     </table>
     <% if @team.id %>
       <button type="submit">Save Changes</button>
     <% else %>
-      <div class="pledge js-pledge"><span class="js-checkbox unchecked"></span> This company pledges to donate at least $3000 to the charity pot</div>
+      <div class="pledge js-pledge"><span class="js-checkbox unchecked"></span> We pledge to donate something (~$3000 if you can) to the charity pot</div>
       <button id="submit-team" type="submit">Signup Team</button>
     <% end %>
   </form>
