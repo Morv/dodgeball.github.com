@@ -86,7 +86,7 @@ class Dodgeball < Sinatra::Base
     team.name = params['team-name']
     team.company  = params['company-name']
     team.charity  = params['charity-name']
-    team.charity_url = params['charity-url']
+    team.charity_url = params['charity-url'][0, 50]
     team.twitter  = params['company-twitter']
     team.email    = params['contact-email']
     team.image    = params['team-image']
