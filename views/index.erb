@@ -53,8 +53,8 @@
           </tr>
           <tr>
             <td><%= team.company %></td>
-            <% if team.charity_url && (team.charity_url != '') %>
-              <td><a href="<%= team.charity_url %>"><%= team.charity %></a></td>
+            <% if team.charity_web && (team.charity_web != '') %>
+              <td><a href="<%= team.charity_web %>"><%= team.charity %></a></td>
             <% else %>
               <td><%= team.charity %></td>
             <% end %>

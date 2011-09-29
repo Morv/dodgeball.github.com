@@ -19,10 +19,10 @@ class Team
   property :name,       String, :required => true, :message => "Cmon, you need a team name"
   property :company,    String, :required => true, :message => "Needs a company name"
   property :charity,    String, :required => true, :message => "You gotta play for a charity, my friend"
-  property :charity_url,  String
+  property :charity_web,  String, :length => 250
   property :github,       String
   property :twitter,      String
-  property :image,        String, :length => 250
+  property :image_url,    String, :length => 250
   property :donation,     Integer, :default => 3000
   property :sponsored,    Integer
   property :cool,         Boolean, :default => false
@@ -44,10 +44,10 @@ class Team
   end
 
   def team_image(size = 100)
-    if (!image || image == '')
+    if (!image_url || image_url == '')
       img = "https://a248.e.akamai.net/assets.github.com/images/gravatars/gravatar-140.png"
     else
-      img = image
+      img = image_url
     end
     "<img height=\"#{size}\" width=\"#{size}\" src=\"#{img}\"/>"
   end
@@ -69,9 +69,11 @@ class Dodgeball < Sinatra::Base
   set :session_secret, "8c23f5ecdef9c54b81244e5426727279"
 
   def notify_campfire(team)
-    hubot = Tinder::Campfire.new ENV['CF_GROUP'], :token => ENV['CF_TOKEN']
-    room = hubot.find_room_by_name(ENV['CF_ROOM'])
-    room.speak "new dodgeball signup: #{team.name} of #{team.company}"
+    if ENV['CF_GROUP']
+      hubot = Tinder::Campfire.new ENV['CF_GROUP'], :token => ENV['CF_TOKEN']
+      room = hubot.find_room_by_name(ENV['CF_ROOM'])
+      room.speak "new dodgeball signup: #{team.name} of #{team.company}"
+    end
   end
 
   def get_data
@@ -86,10 +88,10 @@ class Dodgeball < Sinatra::Base
     team.name = params['team-name']
     team.company  = params['company-name']
     team.charity  = params['charity-name']
-    team.charity_url = params['charity-url'][0, 50]
+    team.charity_web = params['charity-url']
     team.twitter  = params['company-twitter']
     team.email    = params['contact-email']
-    team.image    = params['team-image']
+    team.image_url = params['team-image']
     team.player_1 = params['player-1']
     team.player_2 = params['player-2']
     team.player_3 = params['player-3']
