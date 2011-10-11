@@ -114,8 +114,11 @@ class Dodgeball < Sinatra::Base
       @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['admin', ENV['DODGEWORD']]
     end
 
+    def absolute_url(url)
+      url =~ %r{^https?://} ? url : "http://#{url}"
+    end
+
   end
-  
 
   get '/' do
     get_data
