@@ -71,39 +71,38 @@
           <label for="player-6">Player 6</label>
         </td>
       </tr>
-      <tr class="space-below">
+      <tr class="space">
         <td>
           <input type="text" name="player-7" value="<%= @team.player_7 %>">
-          <label for="player-7">Player 7 (optional)</label>
+          <label for="player-7">Player 7</label>
         </td>
         <td class="spacer">&nbsp;</td>
         <td>
           <input type="text" name="player-8" value="<%= @team.player_8 %>">
-          <label for="player-8">Player 8 (optional)</label>
+          <label for="player-8">Player 8</label>
         </td>
       </tr>
-      <tr>
-        <td colspan="3">
-          <input type="text" name="charity-name" value="<%= @team.charity %>">
-          <label for="charity-name">Charity Name <span class="req">*</span></label>
+      <tr class="space-below">
+        <td>
+          <input type="text" name="player-9" value="<%= @team.player_9 %>">
+          <label for="player-9">Player 9</label>
         </td>
-      </tr>
-      <tr>
-        <td colspan="3">
-          <input type="text" name="charity-url" value="<%= @team.charity_web %>">
-          <label for="charity-url">Charity URL</label>
+        <td class="spacer">&nbsp;</td>
+        <td>
+          <input type="text" name="player-10" value="<%= @team.player_10 %>">
+          <label for="player-10">Player 10</label>
         </td>
       </tr>
       <tr>
         <% if !@edit_amount %> 
           <td colspan="3">
             <input type="text" name="contact-email" value="<%= @team.email %>">
-            <label for="contact-email">Email <span class="req">*</span> (so we can contact you to set up your donation)</label>
+            <label for="contact-email">Email <span class="req">*</span> (so we can contact you to coordinate everything)</label>
           </td>
         <% else %> 
           <td colspan="2">
             <input type="text" name="contact-email" value="<%= @team.email %>">
-            <label for="contact-email">Email <span class="req">*</span> (so we can contact you to set up your donation)</label>
+            <label for="contact-email">Email <span class="req">*</span> (so we can contact you to coordinate everything)</label>
           </td>
           <td>
             <input type="text" name="amount" value="<%= @team.donation %>">
@@ -115,7 +114,7 @@
     <% if @team.id %>
       <button type="submit">Save Changes</button>
     <% else %>
-      <div class="pledge js-pledge"><span class="js-checkbox unchecked"></span> We pledge to donate something to the charity pot</div>
+      <div class="pledge js-pledge"><span class="js-checkbox unchecked"></span> We pledge to donate at least $3000 to the charity pot</div>
       <button id="submit-team" type="submit">Signup Team</button>
     <% end %>
   </form>

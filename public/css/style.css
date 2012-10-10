@@ -101,7 +101,7 @@ div#call-to-action h1 {
   font: normal 140px/104px BebasNeueRegular, Helvetica, Arial, serif;
   text-shadow: 3px 3px 0px #DDD;
   margin: 25px 0 -40px -5px;
-  background: transparent url(../images/dodgetocat.png) 565px 25px no-repeat;
+  background: transparent url(../images/dodgetocat_v2.png) 565px 25px no-repeat;
   padding-bottom: 40px;
 }
 
@@ -198,7 +198,7 @@ div.section li.team {
   overflow: hidden;
   margin: 0 40px 50px 0;
   float: left;
-  height: 305px;
+  height: 325px;
 }
 
 div.section div.team-header {

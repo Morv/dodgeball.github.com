@@ -1,11 +1,11 @@
 <div id="call-to-action" class="section hr">
-  <h2>First Annual</h2>
+  <h2>Second Annual</h2>
   <h1>octocat<br/>dodgeball<br/>invitational</h1>
-  <h2>Sunday, October 23rd at 2:00pm</h2>
+  <h2>Sunday, November 11th at 1:00pm</h2>
   <div id="the-pot">
     <span class="shine"></span>
     <h3 class="title">The Pot</h3>
-    <h3 class="ammount">$<span id="ammount"><%= @pot %></span></h3>
+    <h3 class="ammount">$<span id="ammount">72,000</span></h3>
   </div>
 </div><!-- #header-wrapper -->
 
@@ -14,21 +14,39 @@
   <div class="section-content">
     <h3>Where?</h3>
     <p>
-      <a href="http://g.co/maps/kexjk">Mission Recreation Center</a><br/>
-      2450 Harrison Street<br/>
-      San Francisco, California 94110
+      <a href="http://goo.gl/maps/jnPVO">SoMa Recreation Center</a><br/>
+      270 6th Street, San Francisco, CA
     </p>
     <h3>When?</h3>
     <p>
-      Sunday, October 23rd at 2:00pm
+      Sunday, November 11th 2012, 1:00pm until 6:30pm<br/>
+      <ul>
+        <li>1:00 to 1:30 - Sign in and warm up</li>
+        <li>1:30 to 4:30 - Tournament play</li>
+        <li>5:00 to 6:00 - Finals</li>
+        <li>6:00 to 6:30 - Awards ceremony</li>
+        <li>7:00pm - After-party, details coming soon</li>
+      </ul>
     </p>
     <h3>Why?</h3>
     <p>
-      We were brainstorming in the office and decided we should throw balls at our enemies. But why stop at destroying our enemies with foam spheres? We decided to trick our enemies into giving charities money for the right to have their asses kicked. Hakuna matata.
+      Last year we invited 17 teams to compete on the dodgeball court, all in the name of charity. <a href="https://github.com/blog/969-first-annual-octocat-dodgeball-tournament-a-success">It was awesome!</a> While Heroku's team did defeat all the competition, the real champions are those who received some of the $57,000 we raised last year!
+    </p>
+    <p>
+      This year we're going bigger. More teams, more money for charity, more fun! $3,000 buy in to enter competition, all funds will go to charity. This year we have 24 teams competing, for a total of $72k raised!
     </p>
     <h3>What?</h3>
     <p>
-    GitHub employees and a number of victims from other teams participate in an epic Dodgeball tournament.  Each team that is entered donates at least $3000 to the charity pot. At the end, each team's donation will be split evenly among the winning team's charity and their own. In the process, thousands are entertained.
+    GitHub employees and a number of victims from other teams participate in an epic Dodgeball tournament.  Each team that is entered donates at least $3000 to the charity pot. At the end, all of the donations will be split between 4 pre-choosen charities. In the process, thousands are entertained.
+    </p>
+    <h3>Who?</h3>
+    <p>We will all be playing for four amazing local charities:
+      <ul>
+        <li><a href="http://826valencia.org/">826 Valencia</a>: <small>dedicated to supporting students ages six to eighteen with their writing skills, and to helping teachers inspire their students to write.</small></li>
+        <li><a href="http://www.streetside.org/">Streetside Stories</a>: <small>cultivates young people's voices to develop literacy and arts skills, fosters educational equity, values diversity, and builds community.</small></li>
+        <li><a href="http://sfpl.org/">SF Public Libraries</a>: <small>gives access to information, knowledge, independent learning and the joy of reading.</small></li>
+        <li><a href="http://www.shfb.org/home">Second Harvest Food Bank</a>: <small>mobilizes individuals, companies, and community partners to connect people to the nutritious food they need.</small></li>
+      </ul>
     </p>
   </div>
 </div><!-- #details -->
@@ -49,15 +67,9 @@
         <table class="team-content">
           <tr>
             <th>Company</th>
-            <th>Charity</th>
           </tr>
           <tr>
             <td><%= team.company %></td>
-            <% if team.charity_web && (team.charity_web != '') %>
-              <td><a href="<%= team.charity_web %>"><%= team.charity %></a></td>
-            <% else %>
-              <td><%= team.charity %></td>
-            <% end %>
           </tr>
           <tr>
             <th colspan="2">Team</th>
@@ -75,6 +87,8 @@
       </li>
       <% end %>
     </ul>
+    <% @page = "/new#signup-start" %>
+    <%= erb :form %>
   </div>
 </div><!-- #teams -->
 <div id="challenge">

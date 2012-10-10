@@ -3,7 +3,6 @@ require 'sinatra/base'
 require 'dm-core'
 require 'dm-migrations'
 require 'dm-validations'
-require 'dm-timestamps'
 
 require 'tinder'
 
@@ -13,20 +12,15 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/local.db
 
 class Team
   include DataMapper::Resource
-  has n, :sponsors
 
   property :id,         Serial
   property :name,       String, :required => true, :message => "Cmon, you need a team name"
   property :company,    String, :required => true, :message => "Needs a company name"
-  property :charity,    String, :required => true, :message => "You gotta play for a charity, my friend"
-  property :charity_web,  String, :length => 250
   property :github,       String
   property :twitter,      String
   property :image_url,    String, :length => 250
   property :donation,     Integer, :default => 3000
-  property :sponsored,    Integer
   property :cool,         Boolean, :default => false
-  property :pledge,       Boolean, :default => false, :required => true, :message => "You need to pledge to donate, baby"
   property :owner,        String
   property :email,        String, :required => true, :message => "We need an email address to set up the donation"
   property :player_1,     String
@@ -37,10 +31,11 @@ class Team
   property :player_6,     String
   property :player_7,     String
   property :player_8,     String
-  property :updated_at,   DateTime
+  property :player_9,     String
+  property :player_10,    String
 
   def players
-    [player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8].uniq.reject { |a| a == '' }
+    [player_1, player_2, player_3, player_4, player_5, player_6, player_7, player_8, player_9, player_10].uniq.reject { |a| a == '' }
   end
 
   def team_image(size = 100)
@@ -66,7 +61,7 @@ DataMapper.auto_upgrade!
 
 class Dodgeball < Sinatra::Base
   enable :sessions
-  set :session_secret, "8c23f5ecdef9c54b81244e5426727279"
+  set :session_secret, "8c23f5ecdef9c54b81243e5426727279"
 
   def notify_campfire(team)
     if ENV['CF_GROUP']
@@ -87,8 +82,6 @@ class Dodgeball < Sinatra::Base
   def fill_team(team, params)
     team.name = params['team-name']
     team.company  = params['company-name']
-    team.charity  = params['charity-name']
-    team.charity_web = params['charity-url']
     team.twitter  = params['company-twitter']
     team.email    = params['contact-email']
     team.image_url = params['team-image']
@@ -100,6 +93,8 @@ class Dodgeball < Sinatra::Base
     team.player_6 = params['player-6']
     team.player_7 = params['player-7']
     team.player_8 = params['player-8']
+    team.player_9 = params['player-9']
+    team.player_10 = params['player-10']
   end
 
   helpers do
