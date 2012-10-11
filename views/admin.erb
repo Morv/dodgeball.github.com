@@ -10,7 +10,7 @@
         </td>
         <td><%= team.name %></td>
         <td><%= team.company %></td>
-        <td><%= team.email %></td>
+        <td><a href="mailto:<%= team.email %>"><%= team.email %></a></td>
         <td><%= team.twitter %></td>
         <td><%= team.players.join(', ') %></td>
         <td><%= team.team_image(30) %></td>
@@ -35,7 +35,7 @@
         </td>
         <td><%= team.name %></td>
         <td><%= team.company %></td>
-        <td><%= team.email %></td>
+        <td><a href="mailto:<%= team.email %>"><%= team.email %></a></td>
         <td><%= team.twitter %></td>
         <td><%= team.players.join(', ') %></td>
         <td><%= team.team_image(30) %></td>

@@ -462,3 +462,20 @@ div#challenge h3 {
   line-height: 1em;
   color: #444;
 }
+
+table.charity tr td {
+  padding: 7px;
+}
+
+table.charity tr td.desc {
+  font-size: 0.8em;   
+  font-weight: 300;
+}
+
+#signup ul {
+  padding-left: 40px;
+}
+#signup ul li {
+  font-size: 0.7em;
+  list-style: disc;
+}
