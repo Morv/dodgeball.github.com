@@ -2,7 +2,7 @@
 <% if @team.errors.size > 0 %>
   <div class="error">
     <% @team.errors.each do |err| %>
-      <%= h err %><br/>
+      <%=h err %><br/>
     <% end %>
   </div>
 <% end %>
@@ -17,102 +17,102 @@
     <li>Each team must have at least one female player.</li>
   </ul>
 
-  <form action="<%= @page %>" method="POST">
+  <form action="<%=h @page %>" method="POST">
     <% if @team.id %>
-      <input type="hidden" name="teamid" value="<%= @team.id %>">
+      <input type="hidden" name="teamid" value="<%=h @team.id %>">
     <% end %>
     <table>
       <tr>
         <td>
-          <input type="text" name="company-name" value="<%= @team.company %>">
+          <input type="text" name="company-name" value="<%=h @team.company %>">
           <label for="company-name">Company Name <span class="req">*</span></label>
         </td>
         <td class="spacer">&nbsp;</td>
         <td>
-          <input type="text" name="company-twitter" value="<%= @team.twitter %>">
+          <input type="text" name="company-twitter" value="<%=h @team.twitter %>">
           <label for="company-twitter">Twitter Name</label>
         </td>
       </tr>
       <tr>
         <td colspan="3">
-          <input type="text" name="team-name" value="<%= @team.name %>">
+          <input type="text" name="team-name" value="<%=h @team.name %>">
           <label for="team-name">Team Name <span class="req">*</span></label>
         </td>
       </tr>
       <tr class="space-below">
         <td colspan="3">
-          <input type="text" name="team-image" value="<%= @team.image_url %>">
+          <input type="text" name="team-image" value="<%=h @team.image_url %>">
           <label for="team-image">Team Image URL</label>
         </td>
       </tr>
       <tr>
         <td>
-          <input type="text" name="player-1" value="<%= @team.player_1 %>">
+          <input type="text" name="player-1" value="<%=h @team.player_1 %>">
           <label for="player-1">Player 1</label>
         </td>
         <td class="spacer">&nbsp;</td>
         <td>
-          <input type="text" name="player-2" value="<%= @team.player_2 %>">
+          <input type="text" name="player-2" value="<%=h @team.player_2 %>">
           <label for="player-2">Player 2</label>
         </td>
       </tr>
       <tr>
         <td>
-          <input type="text" name="player-3" value="<%= @team.player_3 %>">
+          <input type="text" name="player-3" value="<%=h @team.player_3 %>">
           <label for="player-3">Player 3</label>
         </td>
         <td class="spacer">&nbsp;</td>
         <td>
-          <input type="text" name="player-4" value="<%= @team.player_4 %>">
+          <input type="text" name="player-4" value="<%=h @team.player_4 %>">
           <label for="player-4">Player 4</label>
         </td>
       </tr>
       <tr>
         <td>
-          <input type="text" name="player-5" value="<%= @team.player_5 %>">
+          <input type="text" name="player-5" value="<%=h @team.player_5 %>">
           <label for="player-5">Player 5</label>
         </td>
         <td class="spacer">&nbsp;</td>
         <td>
-          <input type="text" name="player-6" value="<%= @team.player_6 %>">
+          <input type="text" name="player-6" value="<%=h @team.player_6 %>">
           <label for="player-6">Player 6</label>
         </td>
       </tr>
       <tr class="space">
         <td>
-          <input type="text" name="player-7" value="<%= @team.player_7 %>">
+          <input type="text" name="player-7" value="<%=h @team.player_7 %>">
           <label for="player-7">Player 7</label>
         </td>
         <td class="spacer">&nbsp;</td>
         <td>
-          <input type="text" name="player-8" value="<%= @team.player_8 %>">
+          <input type="text" name="player-8" value="<%=h @team.player_8 %>">
           <label for="player-8">Player 8</label>
         </td>
       </tr>
       <tr class="space-below">
         <td>
-          <input type="text" name="player-9" value="<%= @team.player_9 %>">
+          <input type="text" name="player-9" value="<%=h @team.player_9 %>">
           <label for="player-9">Player 9</label>
         </td>
         <td class="spacer">&nbsp;</td>
         <td>
-          <input type="text" name="player-10" value="<%= @team.player_10 %>">
+          <input type="text" name="player-10" value="<%=h @team.player_10 %>">
           <label for="player-10">Player 10</label>
         </td>
       </tr>
       <tr>
         <% if !@edit_amount %> 
           <td colspan="3">
-            <input type="text" name="contact-email" value="<%= @team.email %>">
+            <input type="text" name="contact-email" value="<%=h @team.email %>">
             <label for="contact-email">Email <span class="req">*</span> (so we can contact you to coordinate everything)</label>
           </td>
         <% else %> 
           <td colspan="2">
-            <input type="text" name="contact-email" value="<%= @team.email %>">
+            <input type="text" name="contact-email" value="<%=h @team.email %>">
             <label for="contact-email">Email <span class="req">*</span> (so we can contact you to coordinate everything)</label>
           </td>
           <td>
-            <input type="text" name="amount" value="<%= @team.donation %>">
+            <input type="text" name="amount" value="<%=h @team.donation %>">
             <label for="amount">Amount Donating</label>
           </td>
         <% end %>
