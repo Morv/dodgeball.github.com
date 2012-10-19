@@ -2,7 +2,7 @@
 <% if @team.errors.size > 0 %>
   <div class="error">
     <% @team.errors.each do |err| %>
-      <%= err %><br/>
+      <%= h err %><br/>
     <% end %>
   </div>
 <% end %>
